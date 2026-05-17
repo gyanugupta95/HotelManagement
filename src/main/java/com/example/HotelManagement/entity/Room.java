@@ -1,0 +1,57 @@
+package com.example.HotelManagement.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "rooms")
+public class Room {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long roomId;
+
+	private String roomNumber;
+	private String roomType;
+	private Double pricePerNight;
+	private String roomStatus;
+
+	public Long getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(Long roomId) {
+		this.roomId = roomId;
+	}
+
+	public String getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(String roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+
+	public String getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
+
+	public Double getPricePerNight() {
+		return pricePerNight;
+	}
+
+	public void setPricePerNight(Double pricePerNight) {
+		this.pricePerNight = pricePerNight;
+	}
+
+	public String getRoomStatus() {
+		return roomStatus;
+	}
+
+	public void setRoomStatus(String roomStatus) {
+		this.roomStatus = roomStatus;
+	}
+}
