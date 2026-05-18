@@ -12,6 +12,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RoomDTO {
+	private String roomNumber;
+	private String roomType;
+	private Double pricePerNight;
+	private String roomStatus;
+	
 	@Override
 	public String toString() {
 		return "RoomDTO [roomNumber=" + roomNumber + ", roomType=" + roomType + ", pricePerNight=" + pricePerNight
@@ -49,10 +54,5 @@ public class RoomDTO {
 	public void setRoomStatus(String roomStatus) {
 		this.roomStatus = roomStatus;
 	}
-
-	private String roomNumber;
-	private String roomType;
-	private Double pricePerNight;
-	private String roomStatus;
 
 }

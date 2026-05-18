@@ -27,6 +27,7 @@ public class Controller {
 
 	@Autowired
 	private CustomerService customerService;
+	@Autowired
 	private RoomService roomService;
 
 	@PostMapping("/createCustomer")
@@ -45,8 +46,8 @@ public class Controller {
 	}
 
 	@PostMapping("/createRoom")
-	public Room saveRoom(@RequestBody RoomDTO dto) {
-		return roomService.saveRoom(dto);
+	public Room saveRoom(@RequestBody RoomDTO rdto) {
+		return roomService.saveRoom(rdto);
 	}
 
 	@GetMapping("getRoom")
