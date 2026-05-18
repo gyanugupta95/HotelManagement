@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.HotelManagement.DTO.RoomDTO;
+import com.example.HotelManagement.entity.Customer;
 import com.example.HotelManagement.entity.Room;
 import com.example.HotelManagement.repository.RoomRepository;
 
@@ -28,5 +29,9 @@ public class RoomService {
 
 	public List<Room> getAllRooms() {
 		return roomRepository.findAll();
+	}
+	
+	public Room getByIdRooms(Long roomId) {
+		return roomRepository.findById(roomId).orElse(null);
 	}
 }
