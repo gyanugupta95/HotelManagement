@@ -29,8 +29,25 @@ public class CustomerService {
 	public List<Customer> getAllCustomers() {
 		return customerRepository.findAll();
 	}
-	
+
 	public Customer getByIdCustomers(Long customerId) {
 		return customerRepository.findById(customerId).orElse(null);
+	}
+
+	public void customerDelete(Long customerId) {
+		customerRepository.deleteById(customerId);
+
+	}
+
+	public Customer updateCustomer(Long customerId, CustomerDTO dto) {
+		Customer existingCustomer = customerRepository.findById(customerId).orElse(null);
+		if (existingCustomer != null) {
+			existingCustomer.setFirstName(dto.getFirstName());
+			existingCustomer.setLastName(dto.getLastName());
+			existingCustomer.setEmail(dto.getEmail());
+			existingCustomer.setPhoneNumber(dto.getPhoneNumber());
+			return customerRepository.save(existingCustomer);
+		}
+		return null;
 	}
 }

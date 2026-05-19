@@ -39,10 +39,21 @@ public class Controller {
 	public List<Customer> getAllCustomers() {
 		return customerService.getAllCustomers();
 	}
-	
+
 	@GetMapping("/getByIdCustomers/{customerId}")
 	public Customer getByIdCustomer(@PathVariable Long customerId) {
 		return customerService.getByIdCustomers(customerId);
+	}
+
+	@GetMapping("/delete/{customerId}")
+	public String customerDelete(@PathVariable Long customerId) {
+		customerService.customerDelete(customerId);
+		return "Deleted Successfully";
+	}
+
+	@PostMapping("/updateCustomer/{customerId}")
+	public Customer updateRoom(@PathVariable Long customerId, @RequestBody CustomerDTO dto) {
+		return customerService.updateCustomer(customerId, dto);
 	}
 
 	@PostMapping("/createRoom")
@@ -54,7 +65,7 @@ public class Controller {
 	public List<Room> getAllRooms() {
 		return roomService.getAllRooms();
 	}
-	
+
 	@GetMapping("/getByIdRoom/{roomId}")
 	public Customer getByIdRooms(@PathVariable Long roomId) {
 		return customerService.getByIdCustomers(roomId);
